@@ -22,7 +22,7 @@ module EnumSimulator
       valid = val_dupe.is_a?(Hash) ? val_dupe.keys : val_dupe
       @enumerated_attributes ||= {}
       @enumerated_attributes[attr] = val_dupe
-      validates_inclusion_of attr, :in => valid
+      validates_inclusion_of attr, :in => valid, :allow_blank => true
 
       class_eval <<RUBY
         def #{attr}
